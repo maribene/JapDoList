@@ -1,7 +1,6 @@
 package sample.database;
 
 import sample.model.Task;
-import sample.model.User;
 
 import java.sql.*;
 
@@ -22,57 +21,7 @@ public class DatabaseHandler  extends Configs{
 
         return dbConnection;
     }
-    public void signUpUser(User user){
 
-        String insert = "INSERT INTO " +Const.USERS_TABLE + "(" +Const.USERS_FIRSTNAME
-                +","+Const.USERS_LASTNAME+","+Const.USERS_USERNAME+","
-                +Const.USERS_PASSWORD+","+Const.USERS_COUNTRY+","
-                +Const.USERS_GENDER+")" + "VALUES(?,?,?,?,?,?)";
-
-        try {
-            PreparedStatement preparedStatement =  getDbConnection().prepareStatement(insert);
-            preparedStatement.setString( 1, user.getFirstname());
-            preparedStatement.setString( 2, user.getLastname());
-            preparedStatement.setString( 3, user.getUsername());
-            preparedStatement.setString( 4, user.getPassword());
-            preparedStatement.setString( 5, user.getCountry());
-            preparedStatement.setString( 6, user.getGender());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch(ClassNotFoundException e){
-            e.printStackTrace();
-        }
-
-    }
-
-    public ResultSet getUser(User user){
-        ResultSet resultSet = null;
-
-        if(!user.getUsername().equals("")||!user.getPassword().equals("")){
-            String query = "SELECT * FROM "+Const.USERS_TABLE + " WHERE "
-                    + Const.USERS_USERNAME + "=?" + " AND " + Const.USERS_PASSWORD
-                    + "=?";
-            try {
-            PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
-            preparedStatement.setString(1,user.getUsername());
-            preparedStatement.setString(2,user.getPassword());
-
-            resultSet = preparedStatement.executeQuery();
-
-            }catch(SQLException e){
-                e.printStackTrace();
-            }catch(ClassNotFoundException e){
-                e.printStackTrace();
-            }
-
-        }else{
-            System.out.println("Please enter your credentials");
-        }
-        return resultSet;
-    }
 
     public void taskintoDatabase(Task task){
 
