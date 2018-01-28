@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddItemController">
+   <children>
+      <AnchorPane prefHeight="96.0" prefWidth="800.0" style="-fx-background-color: #80cbc4;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="87.0" layoutX="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-maneki-neko-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="flor" fitHeight="87.0" fitWidth="111.0" layoutX="303.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-sakura-96.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="deleteButton" layoutX="447.0" layoutY="29.0" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: pink;" text="Delete " textFill="#f8f5f5">
+               <font>
+                  <Font name="Andale Mono" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="addJatask" layoutX="144.0" layoutY="27.0" prefHeight="43.0" prefWidth="159.0" text="Add jatask " textFill="#e4830c">
+               <font>
+                  <Font name="Andale Mono" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="addButton" fitHeight="87.0" fitWidth="39.0" layoutX="105.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-plus-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tableview" editable="true" layoutX="35.0" layoutY="109.0" prefHeight="378.0" prefWidth="605.0">
+        <columns>
+          <TableColumn fx:id="taskColumn" prefWidth="207.0" text="Task" />
+          <TableColumn fx:id="descriptionColumn" prefWidth="251.0" text="Description" />
+            <TableColumn fx:id="dateColumn" prefWidth="146.0" text="Date created" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

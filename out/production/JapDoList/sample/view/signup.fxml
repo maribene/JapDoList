@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SignupController">
+    <children>
+        <AnchorPane prefHeight="96.0" prefWidth="800.0" style="-fx-background-color: #80cbc4;">
+            <children>
+                <ImageView fitHeight="88.0" fitWidth="87.0" layoutX="76.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons8-maneki-neko-100.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutX="-6.0" layoutY="96.0" prefHeight="52.0" prefWidth="806.0" style="-fx-background-color: #ffe0b2#ffe0b2;">
+         <children>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="13.0" text="Sign Up" textFill="#f28109">
+               <font>
+                  <Font name="Andale Mono" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="52.0" fitWidth="127.0" layoutX="453.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons8-pez-koi-100.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <JFXPasswordField fx:id="signupPassword" focusColor="#ee950f" layoutX="200.0" layoutY="297.0" prefHeight="27.0" prefWidth="369.0" promptText="Password" unFocusColor="#eeeded">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="signupButton" layoutX="204.0" layoutY="438.0" prefHeight="36.0" prefWidth="369.0" style="-fx-background-color: #56c8d8 #56c8d8;" text="Sign Up" textFill="#f2eeee">
+         <font>
+            <Font name="Andale Mono" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="signupFirstName" focusColor="#f8a407" layoutX="200.0" layoutY="174.0" prefHeight="27.0" prefWidth="369.0" promptText="First Name" unFocusColor="#f5f0f0">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="signupLastName" focusColor="#f8a407" layoutX="200.0" layoutY="215.0" prefHeight="27.0" prefWidth="369.0" promptText="Last Name" unFocusColor="#f5f0f0">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="signupUsername" focusColor="#f8a407" layoutX="200.0" layoutY="257.0" prefHeight="27.0" prefWidth="369.0" promptText="Username" unFocusColor="#f5f0f0">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="signupCountry" focusColor="#f8a407" layoutX="200.0" layoutY="339.0" prefHeight="27.0" prefWidth="369.0" promptText="Country" unFocusColor="#f5f0f0">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXCheckBox fx:id="signupMale" checkedColor="#fc9906" layoutX="294.0" layoutY="388.0" selected="true" text="Male" textFill="#221f1f" unCheckedColor="WHITE">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox fx:id="signupFemale" checkedColor="#fc9906" layoutX="373.0" layoutY="388.0" text="Female" textFill="#221e1e" unCheckedColor="#2f2205">
+         <font>
+            <Font name="Andale Mono" size="14.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXButton fx:id="backButton" layoutX="632.0" layoutY="443.0" style="-fx-background-color: orange;" text="Back" textFill="#f8f5f5">
+         <font>
+            <Font name="Andale Mono" size="18.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>
