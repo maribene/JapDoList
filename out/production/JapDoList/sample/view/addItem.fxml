@@ -22,7 +22,7 @@
                   <Image url="@../assets/icons8-sakura-96.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="deleteButton" layoutX="447.0" layoutY="29.0" prefHeight="33.0" prefWidth="122.0" style="-fx-background-color: pink;" text="Delete " textFill="#f8f5f5" AnchorPane.topAnchor="35.0">
+            <JFXButton fx:id="deleteButton" layoutX="447.0" layoutY="29.0" prefHeight="33.0" prefWidth="122.0" style="-fx-background-color: pink;" text="Complete" textFill="#f8f5f5" AnchorPane.topAnchor="35.0">
                <font>
                   <Font name="Andale Mono" size="18.0" />
                </font>

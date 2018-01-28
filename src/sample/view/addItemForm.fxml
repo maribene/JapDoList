@@ -9,12 +9,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddItemFormController">
    <children>
-      <JFXTextField fx:id="taskField" focusColor="#f29509" layoutX="143.0" layoutY="102.0" prefHeight="68.0" prefWidth="452.0" promptText="jatask" unFocusColor="#16d3c7">
+      <JFXTextField fx:id="taskField" focusColor="#f29509" layoutX="143.0" layoutY="102.0" prefHeight="68.0" prefWidth="452.0" promptText="What's your plan?" unFocusColor="#16d3c7">
          <font>
             <Font name="Andale Mono" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="descriptionField" focusColor="#f29509" layoutX="143.0" layoutY="200.0" prefHeight="68.0" prefWidth="452.0" promptText="description" unFocusColor="#16d3c7">
+      <JFXTextField fx:id="descriptionField" focusColor="#f29509" layoutX="143.0" layoutY="200.0" prefHeight="68.0" prefWidth="452.0" promptText="Description (optional)" unFocusColor="#16d3c7">
          <font>
             <Font name="Andale Mono" size="14.0" />
          </font>
