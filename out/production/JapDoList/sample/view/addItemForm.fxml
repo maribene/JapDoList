@@ -38,5 +38,10 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <JFXButton fx:id="cancelTaskButton" layoutX="143.0" layoutY="391.0" prefHeight="60.0" prefWidth="287.0" style="-fx-background-color: #56c8d8 #56c8d8;" text="Cancel" textFill="#fffbfb">
+         <font>
+            <Font name="Andale Mono" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

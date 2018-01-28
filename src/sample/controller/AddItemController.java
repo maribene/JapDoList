@@ -1,20 +1,15 @@
 package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
-import sample.animations.Shaker;
 import sample.database.Const;
 import sample.database.DatabaseHandler;
 import sample.model.Task;
@@ -39,11 +34,11 @@ public class AddItemController {
     @FXML
     private URL location;
 
-    @FXML
-    private ImageView addButton;
+    //@FXML
+  //  private ImageView addButton;
 
-    @FXML
-    private Label addJatask;
+   // @FXML
+   // private Label addJatask;
 
     @FXML
     private ImageView flor;
@@ -66,6 +61,9 @@ public class AddItemController {
     @FXML
     private JFXButton deleteButton;
 
+    @FXML
+    private JFXButton addButton;
+
     private ObservableList<Task> list;
     private DatabaseHandler databaseHandler;
 
@@ -74,11 +72,24 @@ public class AddItemController {
 
         databaseHandler = new DatabaseHandler();
         //showButton.setOnAction(event -> {
-            loadDataFromDatabase();
+        loadDataFromDatabase();
         //});
-            deleteButton.setOnAction(event ->{
-                deleteData();
-            });
+        deleteButton.setOnAction(event -> {
+            deleteData();
+        });
+        addButton.setOnAction(event -> {
+
+            try {
+                AnchorPane formPane = FXMLLoader.load(getClass().getResource("/sample/view/addItemForm.fxml"));
+
+                rootAnchorPane.getChildren().setAll(formPane);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+        /*
 
         addButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Shaker buttonShaker = new Shaker(addButton);
@@ -119,6 +130,7 @@ public class AddItemController {
         });
 
     }
+    */
 
     @FXML
     private void loadDataFromDatabase() {

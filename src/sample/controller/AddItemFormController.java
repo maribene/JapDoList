@@ -2,8 +2,10 @@ package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -35,6 +37,8 @@ public class AddItemFormController {
     @FXML
     private JFXButton saveTaskButton;
 
+    @FXML
+    private JFXButton cancelTaskButton;
 
     private DatabaseHandler databaseHandler;
 
@@ -45,7 +49,11 @@ public class AddItemFormController {
 
         saveTaskButton.setOnAction(event -> {
             createTask();
-            addItemScreen();
+            addItemScreen(event);
+        });
+
+        cancelTaskButton.setOnAction(event->{
+            addItemScreen(event);
         });
     }
     private void createTask() {
@@ -65,9 +73,9 @@ public class AddItemFormController {
 
     }
 
-    private void addItemScreen(){
+    private void addItemScreen(ActionEvent event){
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        saveTaskButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/view/addItem.fxml"));
         try {
@@ -76,10 +84,8 @@ public class AddItemFormController {
             e.printStackTrace();
         }
         Parent root = loader.getRoot();
-        Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-
     }
 
 }
