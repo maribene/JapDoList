@@ -85,7 +85,7 @@ public class AddItemFormController {
         }
         Parent root = loader.getRoot();
         stage.setScene(new Scene(root));
-        stage.showAndWait();
+        stage.show();
     }
 
 }

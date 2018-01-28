@@ -33,17 +33,8 @@ public class AddItemController {
     @FXML
     private URL location;
 
-    //@FXML
-    //  private ImageView addButton;
-
-    // @FXML
-    // private Label addJatask;
-
     @FXML
     private ImageView flor;
-
-    // @FXML
-    // private JFXButton showButton;
 
     @FXML
     private TableView<Task> tableview;
@@ -70,9 +61,8 @@ public class AddItemController {
     void initialize() {
 
         databaseHandler = new DatabaseHandler();
-        //showButton.setOnAction(event -> {
         loadDataFromDatabase();
-        //});
+
         deleteButton.setOnAction(event -> {
             deleteData();
         });
@@ -88,48 +78,6 @@ public class AddItemController {
             }
         });
     }
-        /*
-
-        addButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Shaker buttonShaker = new Shaker(addButton);
-            buttonShaker.shake();
-
-            FadeTransition fadeTransition = new FadeTransition(Duration.millis(2000), addButton);
-            FadeTransition labelTransition = new FadeTransition(Duration.millis(2000), addJatask);
-            FadeTransition florTransition = new FadeTransition(Duration.millis(2000), flor);
-
-            System.out.println("Added Clicked!");
-
-            fadeTransition.setFromValue(1f);
-            fadeTransition.setToValue(0f);
-            fadeTransition.setCycleCount(1);
-            fadeTransition.setAutoReverse(false);
-            fadeTransition.play();
-
-            labelTransition.setFromValue(1f);
-            labelTransition.setToValue(0f);
-            labelTransition.setCycleCount(1);
-            labelTransition.setAutoReverse(false);
-            labelTransition.play();
-
-            florTransition.setFromValue(1f);
-            florTransition.setToValue(0f);
-            florTransition.setCycleCount(1);
-            florTransition.setAutoReverse(false);
-            florTransition.play();
-
-            try {
-                AnchorPane formPane = FXMLLoader.load(getClass().getResource("/sample/view/addItemForm.fxml"));
-
-                rootAnchorPane.getChildren().setAll(formPane);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
-    }
-    */
 
     @FXML
     private void loadDataFromDatabase() {
@@ -164,16 +112,21 @@ public class AddItemController {
 
     private void deleteData() {
 
-        ObservableList<Task> taskSelected, allTasks;
+        ObservableList<Task> selectedTasks, allTasks;
         allTasks = tableview.getItems();
-        taskSelected = tableview.getSelectionModel().getSelectedItems();
+        selectedTasks = tableview.getSelectionModel().getSelectedItems();
 
-        Task task = taskSelected.get(0);
+        if(selectedTasks.isEmpty()){
+            System.out.println("No tasks selected");
+        }else{
+            Task task = selectedTasks.get(0);
 
-        System.out.println("Task som slettes: " + task.getTask());
-        databaseHandler.removeTaskFromDatabase(task);
+            System.out.println("Task som slettes: " + task.getTask());
+            databaseHandler.removeTaskFromDatabase(task);
 
-        taskSelected.forEach(allTasks::remove);
+            selectedTasks.forEach(allTasks::remove);
+        }
+
 
     }
 }
