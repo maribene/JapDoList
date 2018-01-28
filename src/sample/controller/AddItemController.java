@@ -10,7 +10,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import sample.database.Const;
 import sample.database.DatabaseHandler;
 import sample.model.Task;
 
@@ -35,16 +34,16 @@ public class AddItemController {
     private URL location;
 
     //@FXML
-  //  private ImageView addButton;
+    //  private ImageView addButton;
 
-   // @FXML
-   // private Label addJatask;
+    // @FXML
+    // private Label addJatask;
 
     @FXML
     private ImageView flor;
 
-   // @FXML
-   // private JFXButton showButton;
+    // @FXML
+    // private JFXButton showButton;
 
     @FXML
     private TableView<Task> tableview;
@@ -163,30 +162,18 @@ public class AddItemController {
 
     }
 
-    private void deleteData(){
+    private void deleteData() {
 
         ObservableList<Task> taskSelected, allTasks;
         allTasks = tableview.getItems();
         taskSelected = tableview.getSelectionModel().getSelectedItems();
 
-        try {
+        Task task = taskSelected.get(0);
 
-            String task = "";
-            for(Task t : taskSelected){
-                task = t.getTask();
-            }
-            System.out.println("Task som slettes: "+task);
-            Connection conn = databaseHandler.getDbConnection();
-            conn.createStatement().executeQuery("DELETE FROM "+ Const.TASKS_TABLE+ " WHERE task = "+ task);
-
-        }catch(SQLException e){
-            System.err.println("Error");
-        } catch(ClassNotFoundException e){
-            e.printStackTrace();
-        }
+        System.out.println("Task som slettes: " + task.getTask());
+        databaseHandler.removeTaskFromDatabase(task);
 
         taskSelected.forEach(allTasks::remove);
 
     }
-
 }

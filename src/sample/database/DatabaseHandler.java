@@ -95,4 +95,15 @@ public class DatabaseHandler  extends Configs{
 
     }
 
+    public void removeTaskFromDatabase(Task task) {
+        try {
+            Connection conn = getDbConnection();
+            conn.createStatement().executeUpdate("DELETE FROM "+ Const.TASKS_TABLE+ " WHERE task = "+ "\"" + task.getTask() + "\"");
+
+        } catch(SQLException e) {
+            System.err.println("Error " + e);
+        } catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
